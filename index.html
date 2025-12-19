@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacob Vos - Design Engineer</title>
+    <title>Katie Anderson - Creative Technologist</title>
     <style>
         /* --- VARIABLES --- */
         :root {
@@ -155,13 +155,99 @@
             h1 { font-size: 24px; }
             .header-row { flex-direction: column; gap: 8px; align-items: center; }
         }
+
+        /* --- WEBRING STYLES --- */
+        .a11y-webring-club {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        /* Style the header to match other section headers */
+        .a11y-webring-club h2 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.02);
+            padding: 16px 24px;
+            margin: 0;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: normal; /* Override default bold */
+        }
+        
+        /* Style the description text */
+        .a11y-webring-club p {
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-color);
+            margin: 0;
+        }
+        
+        .a11y-webring-club p a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;
+        }
+        
+        /* Turn the list into a 3-column grid */
+        .a11y-webring-club ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .a11y-webring-club li {
+            display: flex;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .a11y-webring-club li:last-child {
+            border-right: none;
+        }
+        
+        /* Style the links as buttons */
+        .a11y-webring-club li a {
+            width: 100%;
+            padding: 16px 8px;
+            text-align: center;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            transition: background 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .a11y-webring-club li a:hover {
+            background-color: #1a1a1a;
+        }
+        
+        /* Mobile: Stack links if screen is too small */
+        @media (max-width: 500px) {
+            .a11y-webring-club ul {
+                grid-template-columns: 1fr;
+            }
+            .a11y-webring-club li {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .a11y-webring-club li:last-child {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         <div class="header-row">
-            <span>Based in Lagos, Portugal</span>
+            <span>Based in Boston, Massachusetts</span>
             <span id="clock">00:00:00 UTC</span>
         </div>
 
@@ -171,43 +257,63 @@
                 <span>Updates Coming Soon</span>
             </div>
             <h1>
-                Hey, I'm Jacob. <br>
-                <span class="highlight">I'm a design engineer currently building my new portfolio.</span>
+                Hey, I'm Katie A. <br>
+                <span class="highlight">I'm a designer currently building my new portfolio.</span>
             </h1>
         </div>
 
         <div class="section">
             <div class="section-header">Get in touch</div>
             
-            <a href="mailto:your@email.com" class="link-item">
+            <a href="mailto:hello@k80anderson.com" class="link-item">
                 <span class="link-label">Email Me</span>
                 <span class="arrow">→</span>
             </a>
             
-            <a href="https://twitter.com" target="_blank" class="link-item">
-                <span class="link-label">X (Twitter)</span>
+            <a href="https://bsky.app/profile/k80anderson.bsky.social" target="_blank" class="link-item">
+                <span class="link-label">Bluesky</span>
                 <span class="arrow">↗</span>
             </a>
 
-            <a href="https://linkedin.com" target="_blank" class="link-item">
+            <a href="https://www.linkedin.com/in/k80anderson/" target="_blank" class="link-item">
                 <span class="link-label">LinkedIn</span>
                 <span class="arrow">↗</span>
             </a>
         </div>
 
+        <nav class="a11y-webring-club section" aria-labelledby="a11y-webring-club">
+            <h2 id="a11y-webring-club">a11y-webring.club</h2>
+            <p>This site is a member of the <a rel="external" href="https://a11y-webring.club/">a11y-webring.club</a>.</p>
+            <ul>
+                <li><a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/prev">← Previous</a></li>
+                <li><a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/random">Random</a></li>
+                <li><a rel="external" referrerpolicy="strict-origin" href="https://a11y-webring.club/next">Next →</a></li>
+            </ul>
+        </nav>
+
         <div class="footer">
-            <span>© 2025 Core Placeholder</span>
-            <span>Est. 2024</span>
+            <span>© 2026 Katie Anderson</span>
+            <span>Est. 2018</span>
         </div>
     </div>
 
     <script>
-        // Simple script to update the time
         function updateTime() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            document.getElementById('clock').textContent = timeString;
+            
+            // This forces the time to always be Eastern Time (New York/Boston)
+            const timeString = now.toLocaleTimeString('en-US', { 
+                timeZone: 'America/New_York', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                hour12: false // Set to true if you prefer AM/PM
+            });
+            
+            // Added "EST/EDT" so visitors know which timezone they are looking at
+            document.getElementById('clock').textContent = timeString + " Boston";
         }
+        
         setInterval(updateTime, 1000);
         updateTime();
     </script>
