@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Vos - Design Engineer</title>
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #ededed;
+            --text-muted: #888888;
+            --border-color: #333333;
+            --accent-color: #ffffff;
+            --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+            --spacing-unit: 24px;
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            font-size: 15px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- LAYOUT CONTAINER --- */
+        .wrapper {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- HEADER ROW --- */
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 60px 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        .highlight { color: var(--text-muted); }
+
+        /* --- STATUS BADGE --- */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        /* --- SECTIONS --- */
+        .section {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child { border-bottom: none; }
+
+        .section-header {
+            padding: 16px 24px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: background 0.2s ease;
+        }
+
+        .link-item:hover {
+            background-color: #1a1a1a;
+        }
+        
+        .link-item:not(:last-child) {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .link-label { font-weight: 500; }
+        .arrow { opacity: 0.5; transition: transform 0.2s; }
+        .link-item:hover .arrow { opacity: 1; transform: translateX(4px); }
+
+        /* --- FOOTER --- */
+        .footer {
+            padding: 24px;
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 500px) {
+            h1 { font-size: 24px; }
+            .header-row { flex-direction: column; gap: 8px; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header-row">
+            <span>Based in Lagos, Portugal</span>
+            <span id="clock">00:00:00 UTC</span>
+        </div>
+
+        <div class="hero">
+            <div class="status-badge">
+                <span class="dot"></span>
+                <span>Updates Coming Soon</span>
+            </div>
+            <h1>
+                Hey, I'm Jacob. <br>
+                <span class="highlight">I'm a design engineer currently building my new portfolio.</span>
+            </h1>
+        </div>
+
+        <div class="section">
+            <div class="section-header">Get in touch</div>
+            
+            <a href="mailto:your@email.com" class="link-item">
+                <span class="link-label">Email Me</span>
+                <span class="arrow">→</span>
+            </a>
+            
+            <a href="https://twitter.com" target="_blank" class="link-item">
+                <span class="link-label">X (Twitter)</span>
+                <span class="arrow">↗</span>
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" class="link-item">
+                <span class="link-label">LinkedIn</span>
+                <span class="arrow">↗</span>
+            </a>
+        </div>
+
+        <div class="footer">
+            <span>© 2025 Core Placeholder</span>
+            <span>Est. 2024</span>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to update the time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
